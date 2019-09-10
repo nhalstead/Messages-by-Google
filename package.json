@@ -4,16 +4,20 @@
   "description": "A Windows 10 App for Messages by Google",
   "main": "src/main.js",
   "scripts": {
-    "start": "electron src/main.js"
+    "start": "electron src/main.js",
+    "pack": "electron-builder"
   },
   "repository": "https://github.com/onlineth/Messages-by-Google",
   "author": "Thomas Hein",
   "license": "MIT",
   "devDependencies": {
     "electron": "^6.0.0",
-    "electron-packager": "^14.0.4"
+    "electron-builder": "^21.2.0"
   },
   "build": {
-    "appId": "7185ThomasHein.MessagesByGoogle"
+    "appId": "7185ThomasHein.MessagesByGoogle",
+    "directories": {
+      "output": "build"
+    }
   }
 }

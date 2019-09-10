@@ -92,3 +92,4 @@ typings/
 
 .idea/
 build/
+package-lock.json
