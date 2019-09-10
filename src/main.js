@@ -25,7 +25,7 @@ function createWindow() {
       devTools: false,
       nodeIntegration: false
     },
-    icon: "assets/icon.png"
+    icon: "src/assets/icon.png"
   });
 
   mainWindow.setMenu(null);
@@ -39,7 +39,7 @@ function createWindow() {
 }
 
 function createTaskTray() {
-	tray = new Tray('assets/icon.ico');
+	tray = new Tray('src/assets/icon.ico');
 
 	tray.setToolTip('Messages by Google');
 	tray.on("click", showApp);
