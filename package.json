@@ -5,7 +5,8 @@
   "main": "src/main.js",
   "scripts": {
     "start": "electron src/main.js",
-    "pack": "electron-builder"
+    "pack": "electron-builder",
+    "build": "electron-builder"
   },
   "repository": "https://github.com/onlineth/Messages-by-Google",
   "author": "Thomas Hein",
@@ -16,8 +17,13 @@
   },
   "build": {
     "appId": "7185ThomasHein.MessagesByGoogle",
+    "productName": "Messages by Google",
     "directories": {
-      "output": "build"
-    }
+      "output": "build",
+      "buildResources": "src/assets"
+    },
+    "extraFiles": [
+      "src/assets"
+    ]
   }
 }

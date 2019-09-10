@@ -25,7 +25,7 @@ function createWindow() {
       devTools: false,
       nodeIntegration: false
     },
-    icon: "src/assets/icon.png"
+    icon: 'src/assets/icon.png'
   });
 
   mainWindow.setMenu(null);
