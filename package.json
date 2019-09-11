@@ -1,6 +1,6 @@
 {
   "name": "messages_by_google",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Windows 10 App for Messages by Google",
   "main": "src/main.js",
   "scripts": {

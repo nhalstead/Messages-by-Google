@@ -1,5 +1,4 @@
 const { app, BrowserWindow,Menu, Tray, nativeImage} = require('electron');
-
 let mainWindow, tray;
 
 const gotTheLock = app.requestSingleInstanceLock()
@@ -34,7 +33,7 @@ function createWindow() {
   mainWindow.loadURL('https://messages.google.com/web/');
 
   mainWindow.on('close', function(event) {
-  	if(process.type === 'win32') {
+  	if(process.platform === 'win32') {
 			event.preventDefault();
 			mainWindow.hide();
 		}
