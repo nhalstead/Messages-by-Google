@@ -1,22 +1,29 @@
 const {app, BrowserWindow, Menu, Tray, nativeImage} = require('electron');
 let mainWindow, tray;
 
+
+/*
+ * Only allow once instance to be open at a time
+ */
 const gotTheLock = app.requestSingleInstanceLock();
 
-
 if (!gotTheLock) {
-    app.quit()
-} else {
-    app.on('second-instance', (event, commandLine, workingDirectory) => {
-        showApp()
-    });
-
-    app.on('ready', () => {
-        app.setAppUserModelId('7185ThomasHein.MessagesByGoogle');
-        createWindow();
-        createTaskTray();
-    });
+    app.quit();
 }
+
+app.on('second-instance', (event, commandLine, workingDirectory) => {
+    showApp();
+});
+
+
+/*
+ * App launch window creation
+ */
+app.on('ready', () => {
+    app.setAppUserModelId('7185ThomasHein.MessagesByGoogle');
+    createWindow();
+    createTaskTray();
+});
 
 
 function createWindow() {
@@ -43,9 +50,12 @@ function createWindow() {
 }
 
 
+/*
+ * Tray specific functions
+ */
 function createTaskTray() {
     try {
-        const trayIcon = nativeImage.createFromPath('src/assets/icon.ico')
+        const trayIcon = nativeImage.createFromPath('src/assets/icon.ico');
         tray = new Tray(trayIcon);
 
         tray.setToolTip('Messages by Google');
@@ -63,13 +73,11 @@ function createTaskTray() {
         // Failed to create Tray Icon
         console.log('Failed to Create Icon', e);
     }
-
 }
 
 function reloadApp() {
     mainWindow.webContents.reload();
 }
-
 
 function showApp() {
     mainWindow.show();
@@ -83,7 +91,6 @@ function exitApp() {
     mainWindow.close();
     app.exit();
 }
-
 
 app.on('activate', function () {
     if (mainWindow === null) createWindow()
