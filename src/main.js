@@ -34,7 +34,8 @@ function createWindow() {
             devTools: false,
             nodeIntegration: false
         },
-        icon: 'src/assets/icon.png'
+        icon: 'src/assets/icon.png',
+        show: false
     });
 
     mainWindow.setMenu(null);
@@ -46,7 +47,11 @@ function createWindow() {
             event.preventDefault();
             mainWindow.hide();
         }
-    })
+    });
+
+    mainWindow.webContents.once('did-finish-load', () => {
+        mainWindow.show();
+    });
 }
 
 
